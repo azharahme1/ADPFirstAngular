@@ -1,0 +1,19 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-header">Demo Form: Sku</div>
+    <div class="card-body">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="ui form">
+
+      <div class="form-group">
+          <label for="skuInput">SKU</label>
+          <input class="form-control" type="text" id="skuInput" placeholder="SKU" name="sku" ngModel>
+        </div>
+    
+        <div class="form-group">
+            <label for="name">NAME</label>
+            <input class="form-control" type="text" id="name" placeholder="Name" name="name" ngModel>
+          </div>
+      
+              <button class="btn btn-primary" type="submit" >Submit</button>
+  </form>
+</div>
+</div>

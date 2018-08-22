@@ -1,0 +1,90 @@
+<div style="text-align: left">
+<p>
+  app.secondcomponent works!
+  The name is {{ name | lowercase }}
+  <br>
+  The price is {{ 45 | currency:'EUR'}}
+</p>
+<div>
+  <input type="text" [(ngModel)]="actor" placeholder="Type an actor name" />
+  
+  <button (click)="onButtonClick()">Add Person</button>
+ </div>
+<div>
+  <h3>List of Actors</h3>
+  <ul>
+    <li *ngFor="let person of persons"> 
+      {{ person }} 
+      <span>
+        <button (click)="deletePerson(person)">X</button>
+      </span>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <button (click)="toggleList()">{{ btnText }}</button>
+</div>
+
+<div *ngIf="showFlag">
+    <h3>List of Actors</h3>
+    <input type="text" [(ngModel)]="query" (keyup)="queryPerson()" placeholder="Search Actor">
+    <ul>
+      <li *ngFor="let person of secondList"> 
+        {{ person }} 
+      </li>
+    </ul>
+  </div>
+<div>
+  <h3>List of Vegetables</h3>
+  <table class="table table-hover table-striped table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let veggie of vegetables; index as ndx">
+          <td>
+              <span *ngIf="ndx != selectedIndex">{{veggie.name}}</span>
+              <span *ngIf="ndx == selectedIndex">
+                <input type="text" [(ngModel)]="tempVeg.name" style="background-color: blue; color: yellow">
+              </span>
+            </td>
+            <td>
+                <span *ngIf="ndx != selectedIndex">{{veggie.price | currency:'\u20b9'}}</span>
+                <span *ngIf="ndx == selectedIndex">
+                  <input type="text" [(ngModel)]="tempVeg.price" style="background-color: blue; color: yellow">
+                </span>
+              </td>
+        <td>
+          <div class="btn-group">
+          <span *ngIf="ndx != selectedIndex">
+            <button (click)="editVeggie(veggie, ndx)" class="btn btn-secondary">
+                <i class="fa fa-edit"></i>
+            </button>
+          </span>
+          <span *ngIf="ndx != selectedIndex">
+            <button (click)="deleteVeggie(ndx)" class="btn btn-secondary">
+                <i class="fa fa-trash"></i>
+            </button>
+          </span>
+          <span *ngIf="ndx == selectedIndex">
+            <button (click)="saveVeggie(ndx)" class="btn btn-secondary">
+                <i class="fa fa-save"></i>
+            </button>
+          </span>
+          <span *ngIf="ndx == selectedIndex">
+            <button (click)="cancelEdit()" class="btn btn-secondary">
+                <i class="fa fa-undo"></i>
+            </button>
+          </span>
+        </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </div>
