@@ -32,7 +32,6 @@ export class AppSecondComponent implements OnInit {
       'Deepika',
       'Rajnikant'
     ];
-    this.query = '';
     this.secondList = this.persons.slice();
     this.showFlag = false;
     this.btnText = 'Show List';
